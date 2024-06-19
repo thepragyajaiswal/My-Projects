@@ -1,0 +1,60 @@
+{
+  "version": 1,
+  "author": "Anonymous maker",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-arduino-uno", "id": "uno", "top": -18.6, "left": 9, "attrs": {} },
+    { "type": "board-ds18b20", "id": "temp1", "top": -58.73, "left": -101.52, "attrs": {} },
+    {
+      "type": "wokwi-pir-motion-sensor",
+      "id": "pir1",
+      "top": -216.8,
+      "left": 405.42,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-buzzer",
+      "id": "bz1",
+      "top": -180,
+      "left": 136.2,
+      "attrs": { "volume": "0.1" }
+    },
+    {
+      "type": "wokwi-pir-motion-sensor",
+      "id": "pir2",
+      "top": -245.6,
+      "left": 232.62,
+      "attrs": {}
+    },
+    { "type": "wokwi-relay-module", "id": "relay1", "top": -249.4, "left": 19.2, "attrs": {} },
+    { "type": "wokwi-led", "id": "led1", "top": -147.6, "left": 23, "attrs": { "color": "red" } },
+    {
+      "type": "wokwi-buzzer",
+      "id": "bz2",
+      "top": -199.2,
+      "left": -75,
+      "attrs": { "volume": "0.1" }
+    }
+  ],
+  "connections": [
+    [ "temp1:VCC", "uno:3.3V", "red", [ "v0" ] ],
+    [ "temp1:GND", "uno:GND.2", "black", [ "v0" ] ],
+    [ "temp1:DQ", "uno:4", "green", [ "v0" ] ],
+    [ "pir1:VCC", "uno:3.3V", "red", [ "v0" ] ],
+    [ "pir1:GND", "uno:GND.3", "black", [ "v0" ] ],
+    [ "pir1:OUT", "uno:2", "green", [ "v0" ] ],
+    [ "pir2:VCC", "uno:3.3V", "red", [ "v0" ] ],
+    [ "pir2:GND", "uno:GND.1", "black", [ "v0" ] ],
+    [ "pir2:OUT", "uno:3", "green", [ "v0" ] ],
+    [ "relay1:IN", "uno:7", "green", [ "h0" ] ],
+    [ "relay1:GND", "uno:GND.1", "black", [ "h0" ] ],
+    [ "relay1:VCC", "uno:3.3V", "red", [ "h0" ] ],
+    [ "led1:A", "uno:7", "green", [ "v0" ] ],
+    [ "led1:C", "uno:GND.1", "green", [ "v0" ] ],
+    [ "uno:13", "bz1:2", "green", [ "v-67.2", "h38.8", "v-19.2" ] ],
+    [ "uno:GND.1", "bz1:1", "black", [ "h19.5", "v-86.4" ] ],
+    [ "bz2:2", "uno:12", "green", [ "v0" ] ],
+    [ "bz2:1", "uno:GND.1", "green", [ "v0" ] ]
+  ],
+  "dependencies": {}
+}
